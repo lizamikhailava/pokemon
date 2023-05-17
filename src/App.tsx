@@ -1,21 +1,16 @@
 import { StyledEngineProvider } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { PokemonDetailsPopup } from "./views/components/PokemonDetailsPopup/PokemonDetailsPopup";
-import { ErrorPage } from "./views/pages/ErrorPage/ErrorPage";
-import { HomePage } from "./views/pages/HomePage/HomePage";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./views/components/AppRoutes/AppRoutes";
+import withErrorBoundary from "./views/components/ErrorBoundary/ErrorBoundary";
 
 function App() {
   return (
     <StyledEngineProvider injectFirst>
-      <PokemonDetailsPopup />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </StyledEngineProvider>
   );
 }
 
-export default App;
+export default withErrorBoundary(App);

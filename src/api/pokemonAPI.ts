@@ -1,12 +1,13 @@
 import Pokedex from "pokedex-promise-v2";
 import { IOptions } from "../interfaces";
+import { API_CASH_LIMIT, API_TIMEOUT } from "../utils/constants";
 
 const options: IOptions = {
   protocol: "https",
   hostName: "pokeapi.co",
   versionPath: "/api/v2/",
-  cacheLimit: 100 * 1000,
-  timeout: 10 * 1000
+  cacheLimit: API_CASH_LIMIT,
+  timeout: API_TIMEOUT
 };
 
 const P = new Pokedex(options);

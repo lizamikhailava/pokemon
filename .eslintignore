@@ -1,0 +1,7 @@
+.vscode
+*.min.js
+/scripts/
+node_modules
+.nvmrc
+/config/
+react-app-env.d.ts

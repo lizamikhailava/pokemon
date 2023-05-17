@@ -1,17 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./PokemonList.module.scss";
 import { IPokemon, IPokemonList } from "../../../interfaces";
-import { GET_POKEMON_DETAILS_REQUEST, SHOW_POKEMON_DETAILS } from "../../../redux/actions";
+import { GET_POKEMON_DETAILS_REQUEST } from "../../../redux/actions";
 import {
   pokemonDetailsErrorSelector,
   pokemonDetailsLoadingSelector,
   pokemonDetailsSelector
 } from "../../../redux/selectors/pokemonDetailsSelector";
 import { Loader } from "../Loader/Loader";
+import { PokemonDetailsPopup } from "../PokemonDetailsPopup/PokemonDetailsPopup";
 
 export const PokemonList = ({ pokemonNames }: IPokemonList) => {
   const dispatch = useDispatch();
+  const [modalData, setModalData] = useState<{
+    open: boolean;
+    pokemonDetails: IPokemon | null;
+  }>({ open: false, pokemonDetails: null });
   const pokemonList = useSelector(pokemonDetailsSelector);
   const isLoading = useSelector(pokemonDetailsLoadingSelector);
   const error = useSelector(pokemonDetailsErrorSelector);
@@ -25,28 +30,38 @@ export const PokemonList = ({ pokemonNames }: IPokemonList) => {
   }, [pokemonNames]);
 
   const showPokemonDetails = (pokemonDetails: IPokemon) => {
-    dispatch({
-      type: SHOW_POKEMON_DETAILS,
-      payload: { pokemonDetails, open: true}
-    });
+    setModalData({ open: true, pokemonDetails });
+  };
+
+  const closePopup = () => {
+    setModalData({ open: false, pokemonDetails: null });
   };
 
   const List = () => (
     <ul className={classes.pokemonList}>
-      {pokemonList.map((pokemon: IPokemon, index: number) => {
+      {pokemonList?.map((pokemon: IPokemon, index: number) => {
         return (
           <li
             key={`${pokemon?.name}_${index}`}
             onClick={() => showPokemonDetails(pokemon)}
           >
-            <img alt={pokemon?.name} src={pokemon?.sprites?.front_default} /><span>{pokemon?.name}</span>
+            <img alt={pokemon?.name} src={pokemon?.sprites?.front_default} />
+            <span>{pokemon?.name}</span>
           </li>
         );
       })}
     </ul>
   );
 
-  return <section>
-    <Loader component={<List />} data={pokemonList} isLoading={isLoading} error={error} />
-  </section>;
+  return (
+    <section>
+      <Loader
+        component={<List />}
+        data={pokemonList}
+        isLoading={isLoading}
+        error={error}
+      />
+      <PokemonDetailsPopup {...modalData} handleClose={closePopup} />
+    </section>
+  );
 };

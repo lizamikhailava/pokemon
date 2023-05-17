@@ -5,21 +5,23 @@ import {
   GET_POKEMON_DETAILS_SUCCESS
 } from "../actions";
 import { getPokemonDetails } from "../../api/pokemonAPI";
+import { IError, IPokemon } from "../../interfaces";
 
 function* workerGetPokemonDetails(action: {
   type: string;
   payload: string[];
-}): Generator<any> {
+}) {
   try {
-    const details: unknown = yield call(getPokemonDetails, action.payload);
+    const details: IPokemon[] = yield call(getPokemonDetails, action.payload);
     yield put({
       type: GET_POKEMON_DETAILS_SUCCESS,
       payload: { pokemonDetails: details }
     });
-  } catch (error: any) {
+  } catch (error) {
+    const typedError = error as IError;
     yield put({
       type: GET_POKEMON_DETAILS_ERROR,
-      payload: { message: error.message }
+      payload: { message: typedError.message }
     });
   }
 }

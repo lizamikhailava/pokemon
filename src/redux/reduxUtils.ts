@@ -9,7 +9,7 @@ export const createErrorSelector = (actions: string[]) => (state: {
   return typeof errorObj === "object" ? errorObj.message || "" : errorObj || "";
 };
 
-export const updateState = (state: object, payload: any) => {
+export const updateState = (state: object, payload: Record<string, any>) => {
   return {
     ...state,
     ...payload

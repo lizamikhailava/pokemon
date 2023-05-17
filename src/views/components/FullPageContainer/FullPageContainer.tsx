@@ -1,5 +1,7 @@
-import { IFullPageContainer } from "../../../interfaces";
 import classes from "./FullPageContainer.module.scss";
+import { IFullPageContainer } from "../../../interfaces";
+import { Footer } from "../Footer/Footer";
+import { Header } from "../Header/Header";
 
 export const FullPageContainer = ({
   children,
@@ -7,7 +9,9 @@ export const FullPageContainer = ({
 }: IFullPageContainer) => {
   return (
     <div className={pageClassName ? pageClassName : classes.fullPageContainer}>
-      {children}
+      <Header />
+      <main>{children}</main>
+      <Footer />
     </div>
   );
 };

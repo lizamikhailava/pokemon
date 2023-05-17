@@ -5,18 +5,20 @@ import {
   GET_ALL_POKEMONS_DATA_SUCCESS,
 } from "../actions";
 import { getAllPokemonData } from "../../api/pokemonAPI";
+import { IError, IPokemon } from "../../interfaces";
 
-function* workerGetAllPokemonsData(): Generator<any> {
+function* workerGetAllPokemonsData() {
   try {
-    const data: unknown = yield call(getAllPokemonData);
+    const data: IPokemon[] = yield call(getAllPokemonData);
     yield put({
       type: GET_ALL_POKEMONS_DATA_SUCCESS,
       payload: { pokemons: data } 
     });
-  } catch (error: any) {
+  } catch (error) {
+    const typedError = error as IError;
     yield put({
       type: GET_ALL_POKEMONS_DATA_ERROR,
-      payload: { message: error.message }
+      payload: { message: typedError.message }
     });
   }
 }
