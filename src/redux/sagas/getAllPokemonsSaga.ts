@@ -8,7 +8,7 @@ import { getAllPokemonData } from "../../api/pokemonAPI";
 
 function* workerGetAllPokemonsData(): Generator<any> {
   try {
-    const data: any = yield call(getAllPokemonData);
+    const data: unknown = yield call(getAllPokemonData);
     yield put({
       type: GET_ALL_POKEMONS_DATA_SUCCESS,
       payload: { pokemons: data } 

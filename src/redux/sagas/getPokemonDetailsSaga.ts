@@ -11,10 +11,10 @@ function* workerGetPokemonDetails(action: {
   payload: string[];
 }): Generator<any> {
   try {
-    const details: any = yield call(getPokemonDetails, action.payload);
+    const details: unknown = yield call(getPokemonDetails, action.payload);
     yield put({
       type: GET_POKEMON_DETAILS_SUCCESS,
-      payload: { [details.name]: details }
+      payload: { pokemonDetails: details }
     });
   } catch (error: any) {
     yield put({

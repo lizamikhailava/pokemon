@@ -10,8 +10,27 @@ export interface ILoader {
   isLoading: boolean;
 }
 
+export interface ISearchSection {
+  pokemonsData: IPokemon[];
+}
+
 export interface IPokemonList {
   pokemonNames: string[];
+}
+
+export interface IPokemon {
+  name: string;
+  base_experience: number;
+  height: number;
+  order: number;
+  weight: number;
+  species: { name: string };
+  sprites: { front_default: string };
+}
+
+export interface IModalData {
+  pokemonDetails: IPokemon;
+  open: boolean;
 }
 
 export interface IOptions {

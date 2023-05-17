@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { IPokemon } from "../../../interfaces";
 import { GET_ALL_POKEMONS_DATA_REQUEST } from "../../../redux/actions";
 import { fullPokemonDataErrorSelector, fullPokemonDataLoadingSelector, fullPokemonDataSelector } from "../../../redux/selectors/fullPokemonDataSelector";
 import { Footer } from "../../components/Footer/Footer";
@@ -12,7 +13,7 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(fullPokemonDataLoadingSelector);
   const error = useSelector(fullPokemonDataErrorSelector);
-  const pokemonsData = useSelector(fullPokemonDataSelector);
+  const pokemonsData: IPokemon[] = useSelector(fullPokemonDataSelector);
 
   useEffect(() => {
     dispatch({
@@ -26,7 +27,7 @@ export const HomePage = () => {
       <>
         <Header />
         <main>
-          <Loader component={<SearchSection data={pokemonsData} />} data={pokemonsData} isLoading={isLoading} error={error} />
+          <Loader component={<SearchSection pokemonsData={pokemonsData} />} data={pokemonsData} isLoading={isLoading} error={error} />
         </main>
         <Footer />
       </>

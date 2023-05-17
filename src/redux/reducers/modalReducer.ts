@@ -1,18 +1,22 @@
 import { IReduxAction } from "../../interfaces";
 import { updateState } from "../reduxUtils";
-import { GET_POKEMON_DETAILS_SUCCESS } from "../actions";
+import { CLOSE_POPUP, SHOW_POKEMON_DETAILS } from "../actions";
 
 const initialState = {
-  pokemonDetails: null,
+  pokemonDetails: {},
+  open: false
 };
 
-export const pokemonDetailsReducer = (
+export const modalReducer = (
   state = initialState,
   { type, payload }: IReduxAction
 ) => {
   switch (type) {
-    case GET_POKEMON_DETAILS_SUCCESS: {
+    case SHOW_POKEMON_DETAILS: {
       return updateState(state, payload);
+    }
+    case CLOSE_POPUP: {
+      return updateState(state, initialState)
     }
     default: {
       return state;
