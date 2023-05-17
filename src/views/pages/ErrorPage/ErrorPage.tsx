@@ -9,20 +9,18 @@ export const ErrorPage = () => {
   return (
     <FullPageContainer>
       <div className={classes.errorPageContainer}>
-        <div className={classes.errorContainer}>
-          <p className={classes.errorCode}>404</p>
-          <p className={classes.errorMessage}>
-            Sorry, the content you’re looking for doesn’t exist. <br />
-            Either it was removed, or you mistyped the link.
-          </p>
-          <Button
-            className={classes.goToAction}
-            onClick={() => navigate("/")}
-            variant="contained"
-          >
-            Go to Main Page
-          </Button>
-        </div>
+        <p className={classes.errorCode}>404</p>
+        <p className={classes.errorMessage}>
+          Sorry, the content you’re looking for doesn’t exist. <br />
+          Either it was removed, or you mistyped the link.
+        </p>
+        <Button
+          className={classes.goToAction}
+          onClick={() => navigate("/")}
+          variant="contained"
+        >
+          Go to Main Page
+        </Button>
       </div>
     </FullPageContainer>
   );
