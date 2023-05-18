@@ -50,14 +50,6 @@ export interface IModalData {
   open: boolean;
 }
 
-export interface IOptions {
-  protocol: "https" | "http" | undefined;
-  hostName: string;
-  versionPath: string;
-  cacheLimit: number;
-  timeout: number;
-}
-
 export interface IReduxAction {
   type: string;
   payload: Record<string, any>;
