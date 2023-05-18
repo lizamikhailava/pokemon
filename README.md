@@ -10,7 +10,7 @@ vast variety of features, and a big community with the help of which it's able t
 I chose TypeScript because typing system helps with code management and provides simplicity to those who read the code.
 
 I also decided to use Redux for state management and Redux Saga as a middleware so the components
-don't become overloaded with logic that belongs to a different place. Additionally, these instruments are useful
+wouldn't become overloaded with logic that belongs to a different place. Additionally, these instruments are useful
 in terms of scalability. 
 
 Among other libraries I used:
