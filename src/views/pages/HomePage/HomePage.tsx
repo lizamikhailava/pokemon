@@ -5,7 +5,7 @@ export const HomePage = () => (
   <FullPageContainer>
     <article>
       <h2>Ready to find your favourite pokemon?</h2>
-      <p>Just click <Link to="/search"> here</Link> and start searching</p>
+      <p>Just click <Link to="/search" data-testid="here"> here</Link> and start searching</p>
     </article>
   </FullPageContainer>
 );
