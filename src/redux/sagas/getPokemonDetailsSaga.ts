@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
 import {
   GET_POKEMON_DETAILS_ERROR,
   GET_POKEMON_DETAILS_REQUEST,
@@ -12,7 +12,9 @@ function* workerGetPokemonDetails(action: {
   payload: string[];
 }) {
   try {
-    const details: IPokemon[] = yield call(getPokemonDetails, action.payload);
+    const names = action.payload;
+    const requests = names.map(name => call(getPokemonDetails, name));
+    const details: IPokemon[] = yield all(requests);
     yield put({
       type: GET_POKEMON_DETAILS_SUCCESS,
       payload: { pokemonDetails: details }

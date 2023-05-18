@@ -23,6 +23,10 @@ export interface ISearchSection {
   pokemonsData: IPokemon[] | null;
 }
 
+export interface IAllPokemonsResponse {
+  data: { results: IPokemon[] }
+}
+
 export interface IPokemonList {
   pokemonNames: string[];
 }

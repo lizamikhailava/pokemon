@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export const createLoadingSelector = (actions: string[]) => (state: any) =>
   actions.some((action: string) => state.api.loading[action]);
 
@@ -9,6 +10,7 @@ export const createErrorSelector = (actions: string[]) => (state: {
   return typeof errorObj === "object" ? errorObj.message || "" : errorObj || "";
 };
 
+// eslint-disable-next-line
 export const updateState = (state: object, payload: Record<string, any>) => {
   return {
     ...state,
