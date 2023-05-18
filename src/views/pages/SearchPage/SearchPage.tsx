@@ -2,9 +2,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IPokemon } from "../../../interfaces";
 import { GET_ALL_POKEMONS_DATA_REQUEST } from "../../../redux/actions";
-import { fullPokemonDataErrorSelector, fullPokemonDataLoadingSelector, fullPokemonDataSelector } from "../../../redux/selectors/fullPokemonDataSelector";
+import {
+  fullPokemonDataErrorSelector,
+  fullPokemonDataLoadingSelector,
+  fullPokemonDataSelector,
+} from "../../../redux/selectors/fullPokemonDataSelector";
 import { FullPageContainer } from "../../components/FullPageContainer/FullPageContainer";
-import { Loader } from "../../components/Loader/Loader";
+import { RequestStateManager } from "../../components/RequestStateManager/RequestStateManager";
 import { SearchSection } from "../../components/SearchSection/SearchSection";
 
 export const SearchPage = () => {
@@ -21,7 +25,12 @@ export const SearchPage = () => {
 
   return (
     <FullPageContainer>
-      <Loader component={<SearchSection pokemonsData={pokemonsData} />} data={pokemonsData} isLoading={isLoading} error={error} />
+      <RequestStateManager
+        component={<SearchSection pokemonsData={pokemonsData} />}
+        data={pokemonsData}
+        isLoading={isLoading}
+        error={error}
+      />
     </FullPageContainer>
   );
 };

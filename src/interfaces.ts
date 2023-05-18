@@ -3,7 +3,7 @@ export interface IFullPageContainer {
   pageClassName?: string;
 }
 
-export interface ILoader {
+export interface IRequestStateManager {
   component: JSX.Element;
   data: any;
   error: string;
@@ -19,10 +19,10 @@ export interface IPokemonList {
 }
 
 export interface IPokemon {
-  abilities: { ability: { name: string }, is_hidden: boolean }[];
+  abilities: { ability: { name: string, url: string }, is_hidden: boolean }[];
   name: string;
   base_experience: number;
-  forms: { name: string }[];
+  forms: { name: string, url: string }[];
   height: number;
   order: number;
   weight: number;

@@ -68,7 +68,7 @@ export const PokemonDetailsPopup = ({
             <p>Abilities:</p>
             <ul>
               {abilities?.map(item => (
-                <li>{item?.ability?.name}</li>
+                <li key={item?.ability?.url}>{item?.ability?.name}</li>
               ))}
             </ul>
           </div>
@@ -76,7 +76,7 @@ export const PokemonDetailsPopup = ({
             <p>Forms:</p>
             <ul>
               {forms?.map(form => (
-                  <li>{form?.name}</li>
+                  <li key={form?.url}>{form?.name}</li>
               ))}
             </ul>
           </div>

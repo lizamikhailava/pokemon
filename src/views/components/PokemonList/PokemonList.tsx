@@ -6,9 +6,9 @@ import { GET_POKEMON_DETAILS_REQUEST } from "../../../redux/actions";
 import {
   pokemonDetailsErrorSelector,
   pokemonDetailsLoadingSelector,
-  pokemonDetailsSelector
+  pokemonDetailsSelector,
 } from "../../../redux/selectors/pokemonDetailsSelector";
-import { Loader } from "../Loader/Loader";
+import { RequestStateManager } from "../RequestStateManager/RequestStateManager";
 import { PokemonDetailsPopup } from "../PokemonDetailsPopup/PokemonDetailsPopup";
 
 export const PokemonList = ({ pokemonNames }: IPokemonList) => {
@@ -24,7 +24,7 @@ export const PokemonList = ({ pokemonNames }: IPokemonList) => {
   useEffect(() => {
     dispatch({
       type: GET_POKEMON_DETAILS_REQUEST,
-      payload: pokemonNames
+      payload: pokemonNames,
     });
     // eslint-disable-next-line
   }, [pokemonNames]);
@@ -41,12 +41,10 @@ export const PokemonList = ({ pokemonNames }: IPokemonList) => {
     <ul className={classes.pokemonList}>
       {pokemonList?.map((pokemon: IPokemon, index: number) => {
         return (
-          <li
-            key={`${pokemon?.name}_${index}`}
-            onClick={() => showPokemonDetails(pokemon)}
-          >
+          <li key={`${pokemon?.name}_${index}`} onClick={() => showPokemonDetails(pokemon)}>
             <img alt={pokemon?.name} src={pokemon?.sprites?.front_default} />
             <span>{pokemon?.name}</span>
+            <span>Exp: {pokemon?.base_experience}</span>
           </li>
         );
       })}
@@ -55,12 +53,7 @@ export const PokemonList = ({ pokemonNames }: IPokemonList) => {
 
   return (
     <section>
-      <Loader
-        component={<List />}
-        data={pokemonList}
-        isLoading={isLoading}
-        error={error}
-      />
+      <RequestStateManager component={<List />} data={pokemonList} isLoading={isLoading} error={error} />
       <PokemonDetailsPopup {...modalData} handleClose={closePopup} />
     </section>
   );
