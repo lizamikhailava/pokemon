@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Paths } from "../../../utils/constants";
+import { Paths } from "../../../utils/paths";
 import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
 import { HomePage } from "../../pages/HomePage/HomePage";
 import { SearchPage } from "../../pages/SearchPage/SearchPage";

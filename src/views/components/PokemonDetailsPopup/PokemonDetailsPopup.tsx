@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
 import classes from "./PokemonDetailsPopup.module.scss";
-import { Close } from "../../../assets/icons/Close";
 import { IModalData } from "../../../interfaces";
+import { Close } from "./icons/Close";
 
 export const PokemonDetailsPopup = ({
   handleClose,

@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 import classes from "./SearchSection.module.scss";
 import { IPokemon, ISearchSection } from "../../../interfaces";
 import { PokemonList } from "../PokemonList/PokemonList";
-import { MINIMUM_NUMBER_OF_SYMBOLS, ZERO } from "../../../utils/constants";
+import { MINIMUM_NUMBER_OF_SYMBOLS, ZERO } from "../../../utils/components";
 
 export const SearchSection = ({ pokemonsData }: ISearchSection) => {
   const [searchText, setSearchText] = useState<string>("");

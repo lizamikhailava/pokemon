@@ -2,7 +2,7 @@ export const createLoadingSelector = (actions: string[]) => (state: any) =>
   actions.some((action: string) => state.api.loading[action]);
 
 export const createErrorSelector = (actions: string[]) => (state: {
-  api: { error: any };
+  api: { error: Record<string, { message: string }> };
 }) => {
   const errorObj =
     state.api.error[actions.find((action: string) => state.api.error[action]) || ""];

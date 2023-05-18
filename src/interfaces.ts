@@ -1,3 +1,12 @@
+export interface IErrorBoundaryProps {
+  fallback: JSX.Element;
+  children: JSX.Element;
+}
+
+export interface IErrorBoundaryState {
+  hasError: boolean;
+}
+
 export interface IFullPageContainer {
   children: JSX.Element;
   pageClassName?: string;

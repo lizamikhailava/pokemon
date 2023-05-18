@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { menuItems } from "../../../utils/constants";
+import { MENU_ITEMS } from "../../../utils/menu";
 
 export const Header = () => {
   return (
@@ -11,7 +11,7 @@ export const Header = () => {
         <h1>Find your pokemon</h1>
       </div>
       <nav>
-        {menuItems.map(({ id, label, url }) => (
+        {MENU_ITEMS.map(({ id, label, url }) => (
           <Link key={id} to={url}>
             {label}
           </Link>

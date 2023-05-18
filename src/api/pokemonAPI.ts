@@ -1,6 +1,6 @@
 import Pokedex from "pokedex-promise-v2";
 import { IOptions } from "../interfaces";
-import { API_CASH_LIMIT, API_TIMEOUT } from "../utils/constants";
+import { API_CASH_LIMIT, API_TIMEOUT } from "../utils/api";
 
 const options: IOptions = {
   protocol: "https",

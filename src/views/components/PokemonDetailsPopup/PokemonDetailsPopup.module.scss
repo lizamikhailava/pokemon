@@ -4,6 +4,11 @@
   @media only screen and (min-width: 600px){
     min-width: 550px;
   }
+
+  @media only screen and (max-width: 400px){
+    margin: 5px;
+    width: 100%;
+  }
 }
 
 .modalTitle {

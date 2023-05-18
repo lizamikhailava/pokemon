@@ -1,20 +1,22 @@
-import { useState } from 'react';
+import React from "react";
+import { IErrorBoundaryProps, IErrorBoundaryState } from "../../../interfaces";
 
-function withErrorBoundary(WrappedComponent: Function) {
+export class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
+  constructor(props: IErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-  return function ErrorBoundary() {
-    const [error, setError] = useState<null | unknown>(null);
-  
-    if (error) {
-      return <div>An error occurred: {error.toString()}</div>;
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return this.props.fallback;
     }
-  
-    try {
-      return WrappedComponent();
-    } catch (err: unknown) {
-      setError(err);
-    }
-  };
+
+    return this.props.children;
+  }
 }
-
-export default withErrorBoundary;
