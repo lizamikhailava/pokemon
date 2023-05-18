@@ -33,7 +33,7 @@ export const SearchSection = ({ pokemonsData }: ISearchSection) => {
     <section>
       <TextField
         className={classes.searchField}
-        onChange={event => setSearchText(event.target.value)}
+        onChange={event => setSearchText(event.target.value.trim())}
         placeholder="Type 3 or more symbols"
         value={searchText}
         helperText={inputError && "Type at least 3 symbols"}

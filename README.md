@@ -18,7 +18,7 @@ Among other libraries I used:
 - React Router for SPA and therefore perfomance
 - Material UI kit for better and effortless UI
 - Sass modules, because they provide encapsulated styles and convinient Sass syntax
-- Axios for more convenient API usage
+- Axios for more convenient API usage (I had to switch from pokedex-promise-v2 last minute)
 - ESlint and Prettier for maintaining consistency in the code
 
 ### How long did it take me to complete the exercise
@@ -26,7 +26,8 @@ It took me around 24 hours to complete the task
 
 ### If I had to do a second iteration, what would you add or improve?
 - Caching of the API requests
-- More tests
+- End-to-end tests and increase unit tests coverage
+- Separate page for pokemon details
 
 ## Available Scripts
 

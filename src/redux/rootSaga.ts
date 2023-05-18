@@ -8,7 +8,6 @@ const sagas = Object.values(allWatchers).map((saga) =>
         yield call(saga);
         break;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error('Saga error:', error);
       }
     }

@@ -26,7 +26,6 @@ export const PokemonList = ({ pokemonNames }: IPokemonList) => {
       type: GET_POKEMON_DETAILS_REQUEST,
       payload: pokemonNames,
     });
-    // eslint-disable-next-line
   }, [pokemonNames]);
 
   const showPokemonDetails = (pokemonDetails: IPokemon) => {
