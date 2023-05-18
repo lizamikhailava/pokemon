@@ -22,7 +22,7 @@ Among other libraries I used:
 - ESlint and Prettier for maintaining consistency in the code
 
 ### How long did it take me to complete the exercise
-It took me around 20 hours to complete the task
+It took me around 24 hours to complete the task
 
 ### If I had to do a second iteration, what would you add or improve?
 - First of all, I would add tests
