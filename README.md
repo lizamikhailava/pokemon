@@ -1,6 +1,33 @@
-# Getting Started with Create React App
+# Project overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### My approach and design choices
+I approached this exercise as a full-scale application and developed it taking into account
+potential future extensions, perfomance, user experience, and of course code quality.
+
+I picked React for its declarative approach, built-in optimizations, component reusability, cross-platform support,
+vast variety of features, and a big community with the help of which it's able to progress fast.
+
+I chose TypeScript because typing system helps with code management and provides simplicity to those who read the code.
+
+I also decided to use Redux for state management and Redux Saga as a middleware so the components
+don't become overloaded with logic that belongs to a different place. Additionally, these instruments are useful
+in terms of scalability. 
+
+Among other libraries I used:
+- Create React App to set up the application faster
+- React Router for SPA and therefore perfomance
+- Material UI kit for better and effortless UI
+- Sass modules, because they provide encapsulated styles and convinient Sass syntax
+- pokedex-promise-v2 for API usage because of its bult-in caching
+- ESlint and Prettier for maintaining consistency in the code
+
+### How long did it take me to complete the exercise
+It took me around 20 hours to complete the task
+
+### If I had to do a second iteration, what would you add or improve?
+- First of all, I would add tests
+- I would improve the UI in terms of accessability
+
 
 ## Available Scripts
 
@@ -39,8 +66,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `npm run lint`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the linter on the entire project directory
