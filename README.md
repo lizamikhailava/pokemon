@@ -25,9 +25,8 @@ Among other libraries I used:
 It took me around 24 hours to complete the task
 
 ### If I had to do a second iteration, what would you add or improve?
-- First of all, I would add tests
-- I would improve the UI in terms of accessability
-
+- Caching of the API requests
+- More tests
 
 ## Available Scripts
 
