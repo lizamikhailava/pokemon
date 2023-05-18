@@ -18,7 +18,7 @@ header {
   background-color: #282c34;
 
   h1 {
-    font-size: 2em;
+    font-size: 2rem;
     white-space: nowrap;
   }
 
@@ -40,8 +40,12 @@ header {
     flex-wrap: wrap;
 
     h1 {
-      font-size: 1.5em;
+      font-size: 1.5rem;
     }
+  }
+
+  main {
+    height: calc(100% - 280px);
   }
 }
 
@@ -56,6 +60,7 @@ nav {
 main {
   text-align: center;
   padding: 30px;
+  height: calc(100% - 220px);
   display: flex;
   justify-content: center;
 }
