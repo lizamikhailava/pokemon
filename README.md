@@ -18,7 +18,7 @@ Among other libraries I used:
 - React Router for SPA and therefore perfomance
 - Material UI kit for better and effortless UI
 - Sass modules, because they provide encapsulated styles and convinient Sass syntax
-- pokedex-promise-v2 for API usage because of its bult-in caching
+- Axios for more convenient API usage
 - ESlint and Prettier for maintaining consistency in the code
 
 ### How long did it take me to complete the exercise
